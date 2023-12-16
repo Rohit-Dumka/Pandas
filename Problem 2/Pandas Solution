@@ -1,0 +1,8 @@
+import pandas as pd
+
+def find_classes(courses: pd.DataFrame) -> pd.DataFrame:
+    
+    temp=courses.groupby('class')['student'].count().reset_index()
+    temp=temp[temp['student']>4]
+
+    return temp[['class']]
